@@ -11,7 +11,8 @@ def home(request):
     if category == None:
        photos = Photo.objects.all()
     else:
-        photos = Photo.objects.filter(Category__name=category)  
+        photos = Photo.objects.filter(Category__name=category) 
+
    
 
     categories = Category.objects.all()
@@ -59,6 +60,7 @@ def addphotos(request):
 
 def photov(request, pk):
     categories = Category.objects.all()
+
     photo = Photo.objects.get(id=pk)
     
    
@@ -67,9 +69,17 @@ def photov(request, pk):
     return render(request, 'home/photoview.html', context)
 
 def deletev(request, pk):
-  
+      
 
     delete = Photo.objects.get(id=pk)
+    delete.delete()
+   
+    
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+def deletecat(request, pk):
+  
+
+    delete = Category.objects.get(id=pk)
     delete.delete()
    
     

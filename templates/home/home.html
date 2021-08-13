@@ -86,9 +86,22 @@
                    
                     {% for category in cata %}
                     <li>
-                        <a href="{% url 'home'%}?category={{category.name}}"><img src="{% static 'folder25.png' %}" alt="cocoon">
-                            {{category.name}}
-                        </a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{% url 'home'%}?category={{category.name}}">
+                                    {{category.name}}                       
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a  href="{% url 'deletecat' category.id %}"> <img src="{% static 'delete.png' %}" alt="cocoon"></a>
+
+                            </div>
+
+                           
+
+                        </div>
+                        
+
                     </li>
                     {% endfor %}
                    
@@ -134,6 +147,7 @@
           
             
                 <div class="row">
+                   
                     {% for imgs in poths %}
                     <div class="col-md-4">
                         <div class="card m-2">

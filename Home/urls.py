@@ -8,4 +8,5 @@ urlpatterns = [
    path('add', addphotos, name='addphotos'),
    path('photov/<str:pk>/',photov, name='photov'),
    path('deletev/<str:pk>/',deletev, name='deletev'),
+   path('deletecat/<str:pk>/',deletecat, name='deletecat'),
 ]
