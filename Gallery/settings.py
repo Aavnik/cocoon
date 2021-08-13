@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'Home'
+    'Home',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'walkin0503nik@gmail.com'
 EMAIL_HOST_PASSWORD = 'Aav5nik@me'
 
+#AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = 'AKIA2ZWL3AKJ3HV34E2T'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'cocoon-gallery'
+AWS_QUERYSTRING_AUTH = False
