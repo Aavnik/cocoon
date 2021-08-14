@@ -9,4 +9,5 @@ urlpatterns = [
    path('photov/<str:pk>/',photov, name='photov'),
    path('deletev/<str:pk>/',deletev, name='deletev'),
    path('deletecat/<str:pk>/',deletecat, name='deletecat'),
+   path('error',error, name='error'),
 ]

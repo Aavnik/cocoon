@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from Accounts.models import *
 
 
 # Create your models here.
@@ -10,13 +11,15 @@ class Basemodel(models.Model):
     class Meta:
         abstract = True
 class Category(Basemodel):
-   
+
+    cust = models.ForeignKey(usersignup, on_delete=models.CASCADE,null=True,blank=True)
     name = models.CharField(max_length=100, null=False,blank=False)
 
     def __str__(self):
         return self.name
 
 class Photo(Basemodel):
+    custphoto = models.ForeignKey(usersignup, on_delete=models.CASCADE,null=True,blank=True)
     Category =models.ForeignKey(Category, on_delete=models.CASCADE,null=True,blank=True)
     image = models.ImageField(upload_to ='Image')
 

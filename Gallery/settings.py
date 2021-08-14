@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'Home',
+    'Accounts',
     'storages',
 ]
 
@@ -156,3 +157,9 @@ AWS_SECRET_ACCESS_KEY = 'Elw4Qy/NPM1td/ZgJ8rPRs2j4wuDmXpRzgo/3oRh'
 
 AWS_STORAGE_BUCKET_NAME = 'cocoon-gallery'
 AWS_QUERYSTRING_AUTH = False
+
+
+
+
+#username = aavnik
+# password = admin123

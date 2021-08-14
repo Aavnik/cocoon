@@ -86,7 +86,7 @@
                    
                     {% for category in cata %}
                     <li>
-                        <div class="row">
+                        <div class="row ">
                             <div class="col-md-6">
                                 <a href="{% url 'home'%}?category={{category.name}}">
                                     {{category.name}}                       
@@ -104,7 +104,10 @@
 
                     </li>
                     {% endfor %}
-                   
+                   <li> <a href="{% url 'logut' %}" class="btn btn-info">
+                        <span class="glyphicon glyphicon-log-out align-right"></span> Log out
+                      </a>
+                    </li>
                 </ul>
             </div>
             <!--main menu end -->
@@ -115,6 +118,7 @@
             <!--social and copyright -->
             <div class="side_menu_bottom">
                 <div class="side_menu_bottom_inner">
+                   
                     <ul class="social_menu">
                         <li>
                             <a href="#"> <i class="ion ion-social-pinterest"></i> </a>
@@ -129,6 +133,7 @@
                             <a href="#"> <i class="ion ion-social-dribbble"></i> </a>
                         </li>
                     </ul>
+                    
                     <div class="copy_right">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </p>
@@ -145,7 +150,7 @@
         <div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
             <!--=================== filter portfolio start====================-->
           
-            
+           
                 <div class="row">
                    
                     {% for imgs in poths %}
