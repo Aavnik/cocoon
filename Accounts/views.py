@@ -49,7 +49,7 @@ def loginauth(request):
                 if userlogin_obj is None:
                     return HttpResponse("Please Register First")
                 if not userlogin_obj.email_verified:
-                    return HttpResponse("Please Register First")
+                    return render(request ,'accounts/verifyaccount.html')    
                 user=authenticate(username=email, password=password)  
                 if user is None:
                     print("user in non")
