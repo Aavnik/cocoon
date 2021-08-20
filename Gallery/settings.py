@@ -147,7 +147,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'walkin0503nik@gmail.com'
-EMAIL_HOST_PASSWORD = 'Aav5nik@me'
+EMAIL_HOST_PASSWORD = 'rifevhlwlwqxxfrp'
 
 #AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
