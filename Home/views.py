@@ -7,21 +7,24 @@ from django.contrib.auth import logout
 # Create your views here.
 @login_required(login_url='/account/login-auth')
 def home(request):
-    user_obj = request.user.usersignup
-    cat_obj = Category.objects.filter(cust=user_obj)
-    phos = Photo.objects.filter(Category=cat_obj)
-    
+    try:
+       
+        user_obj = request.user.usersignup
+        cat_obj = Category.objects.filter(cust=user_obj)
+        phos = Photo.objects.filter(Category=cat_obj)
 
-    
-    category = request.GET.get('category')
-    
-    if category == None:
-        photos = Photo.objects.filter(custphoto=user_obj)
-    else:
-        photos = Photo.objects.filter(Category__name=category) 
-    
-    context = {'cata': cat_obj, 'poths':photos}
 
+
+        category = request.GET.get('category')
+
+        if category == None:
+            photos = Photo.objects.filter(custphoto=user_obj)
+        else:
+            photos = Photo.objects.filter(Category__name=category) 
+
+        context = {'cata': cat_obj, 'poths':photos}
+    except Exception as e:
+        print(e) 
     return render(request, 'home/home.html',context)
 
 @login_required(login_url='/account/login-auth')
@@ -60,29 +63,34 @@ def addphotos(request):
 
 @login_required(login_url='/account/login-auth')
 def photov(request, pk):
-    user_obj = request.user.usersignup
-    cat_obj = Category.objects.filter(cust=user_obj)
+    try:
+        
+        user_obj = request.user.usersignup
+        cat_obj = Category.objects.filter(cust=user_obj)
 
-    photo = Photo.objects.get(id=pk)
-    if photo.Category.cust != request.user.usersignup:
-        return HttpResponse ("you are not authorised to delete this item")
+        photo = Photo.objects.get(id=pk)
+        if photo.Category.cust != request.user.usersignup:
+            return HttpResponse ("you are not authorised to delete this item")
+
     
-  
+
     
-   
-    context = {'photos':photo,'cata': cat_obj}
-    print(context)
+        context = {'photos':photo,'cata': cat_obj}
+    except Exception as e:
+        print(e)
     return render(request, 'home/photoview.html', context)
 
 @login_required(login_url='/account/login-auth')
 def deletev(request, pk):
+    try:
       
     
-    delete = Photo.objects.get(id=pk)
-    if delete.Category.cust != request.user.usersignup:
-        return HttpResponse ("you are not authorised to delete this item")
-    delete.delete()
-   
+        delete = Photo.objects.get(id=pk)
+        if delete.Category.cust != request.user.usersignup:
+            return HttpResponse ("you are not authorised to delete this item")
+        delete.delete()
+    except Exception as e:
+        print(e)
     
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

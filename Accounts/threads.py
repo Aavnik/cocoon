@@ -14,8 +14,8 @@ class Send_mail(threading.Thread):
 
     def run(self):
         try:
-            subject = "Link to verify the your Account"
-            message = f"Hi! here's the link to activate your account http://127.0.0.1:8000/account/verify-email{self.email_tok}"
+            subject = "Verification Link form Cocoon"
+            message = f"Hi! there's Click the link to activate your account -  https://cocoons.herokuapp.com//account/verify-email{self.email_tok}"
             email_from = settings.EMAIL_HOST_USER
             print("Email send initiated")
             reply_to=[email_from],
