@@ -7,24 +7,18 @@ from django.contrib.auth import logout
 # Create your views here.
 @login_required(login_url='/account/login-auth')
 def home(request):
-    try:
+    
        
-        user_obj = request.user.usersignup
-        cat_obj = Category.objects.filter(cust=user_obj)
-        phos = Photo.objects.filter(Category=cat_obj)
-
-
-
-        category = request.GET.get('category')
-
-        if category == None:
-            photos = Photo.objects.filter(custphoto=user_obj)
-        else:
-            photos = Photo.objects.filter(Category__name=category) 
-
-        context = {'cata': cat_obj, 'poths':photos}
-    except Exception as e:
-        print(e) 
+    user_obj = request.user.usersignup
+    cat_obj = Category.objects.filter(cust=user_obj)
+    phos = Photo.objects.filter(Category=cat_obj)
+    category = request.GET.get('category')
+    if category == None:
+        photos = Photo.objects.filter(custphoto=user_obj)
+    else:
+        photos = Photo.objects.filter(Category__name=category) 
+    context = {'cata': cat_obj, 'poths':photos}
+    
     return render(request, 'home/home.html',context)
 
 @login_required(login_url='/account/login-auth')
